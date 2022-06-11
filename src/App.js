@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import CheckBoxs from "./components/CheckBoxs";
 
 function App() {
