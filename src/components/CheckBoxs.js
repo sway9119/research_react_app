@@ -4,7 +4,7 @@ class CheckBoxs extends React.Component {
   constructor() {
     super();
     this.state = {
-      prefectures: {}, // 都道府県一覧データ郡
+      prefectures: [], // 都道府県一覧データ郡
     };
   }
 
@@ -20,18 +20,27 @@ class CheckBoxs extends React.Component {
       });
   }
 
-  createItem(props) {
-    return (
-      <div key={props.prefCode}>
-        {props.prefCode}: {props.prefName}
-      </div>
-    );
-  }
-
   render() {
-    const prefs = this.state.prefectures;
+    const prefectures = this.state.prefectures;
+    console.log(prefectures);
     return (
-      <div>{Object.keys(prefs).map((i) => this.createItem(prefs[i]))}</div>
+      <div name="checkboxFeild">
+        {prefectures.map((prefecture) => (
+          <div class="checkbox" key={prefecture.prefName}>
+            <input
+              type="checkbox"
+              name="Prefecture name"
+              id={"checkbox" + prefecture.prefCode}
+              onChange={(event) => handleChange(event)}
+            ></input>
+            <label htmlFor={"checkbox" + prefecture.prefCode}>
+              {prefecture.prefName.length === 3
+                ? "　" + prefecture.prefName
+                : prefecture.prefName}
+            </label>
+          </div>
+        ))}
+      </div>
     );
   }
 }
