@@ -9,7 +9,13 @@ export function fetchPrefectures() {
   })
     .then((response) => response.json())
     .then((data) => {
-      data.result.forEach((prefecture) => prefectures.push(prefecture));
+      data.result.forEach((prefecture) => {
+        let pref = {
+          prefCode: prefecture.prefCode,
+          prefName: prefecture.prefName,
+        };
+        prefectures.push(pref);
+      });
     });
   return prefectures;
 }
