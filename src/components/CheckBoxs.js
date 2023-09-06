@@ -19,7 +19,6 @@ class CheckBoxs extends React.Component {
     // console.log("state: ");
     let test = [];
     for (let step = 0; step < 47; step++) {
-      // 値が 0 から 4 まで計 5 回実行される
       test.push({ a: 1, b: 2 });
     }
 
